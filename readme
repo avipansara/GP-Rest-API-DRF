@@ -1,0 +1,130 @@
+Get all recipes
+Endpoint: http://127.0.0.1:8000/api/recipes/
+HTTP Method: GET
+JSON response:
+[
+    {
+        "id": 2,
+        "user": 1,
+        "name": "make Taco",
+        "step": [
+            {
+                "id": 2,
+                "recipe": 2,
+                "step_text": "Take Tortilla"
+            }
+        ],
+        "ingredient": [
+            {
+                "id": 1,
+                "recipe": 2,
+                "ingredient_text": "Cheese"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "user": 1,
+        "name": "Make coffee",
+        "step": [
+            {
+                "id": 4,
+                "recipe": 3,
+                "step_text": "Boil milk"
+            },
+            {
+                "id": 5,
+                "recipe": 3,
+                "step_text": "Add coffee powder"
+            }
+        ],
+        "ingredient": [
+            {
+                "id": 2,
+                "recipe": 3,
+                "ingredient_text": "Coffee"
+            }
+        ]
+    }
+]
+
+
+******Add Recipe******
+Endpoint: http://127.0.0.1:8000/api/recipes/
+HTTP Method: POST
+Request Format:
+{ 
+	"name"    : "Make Tea",
+	"user_id" : 1 
+}
+
+JSON Response:
+If successful
+{
+    "id": 5,
+    "user": 1,
+    "name": "Make tea",
+    "step": [],
+    "ingredient": []
+}
+
+
+*****Update Recipe*****
+Endpoint: http://127.0.0.1:8000/api/recipes/recipe_id/
+HTTP Method: PUT/PATCH 
+Request Format
+{ 
+	"name"    : "Recipe_name" 
+} 
+
+JSON Response
+{
+    "id": 5,
+    "user": 1,
+    "name": "Recipe_name",
+    "step": [],
+    "ingredient": []
+}
+
+
+*****Delete Recipe*****
+Endpoint: http://127.0.0.1:8000/api/recipes/recipe_id
+HTTP Method: DELETE 
+
+
+*****Retrieve all recipes by particular user*****
+Endpoint: http://127.0.0.1:8000/api/recipes/user/user_id
+HTTP Method: GET
+Response: Gets all recipes by this user if user is in the database. Otherwise, it will throw an error
+
+
+*****Add Steps*****
+Endpoint: http://127.0.0.1:8000/api/recipes/recipe_id/step/
+HTTP method: POST
+
+Request Response:
+{
+    "step_text": "step_name"
+}
+
+JSON Response:
+{
+    "id": 7,
+    "recipe": recipe_id,
+    "step_text": "step_name"
+}
+
+*****Add Ingredients*****
+{
+    "ingredient_text": "Ingredient"
+}
+
+JSON Response:
+{
+    "id": 7,
+    "recipe": recipe_id,
+    "ingredient_text": "Ingredient"
+}
+
+
+For more information about the how to send responses and retrieve responses, check out api/urls.py
