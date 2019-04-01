@@ -127,4 +127,4 @@ JSON Response:
 }
 
 
-For more information about the how to send responses and retrieve responses, check out api/urls.py
+For more information about how to send responses and retrieve responses, check out api/urls.py
